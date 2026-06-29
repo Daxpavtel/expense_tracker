@@ -5,7 +5,7 @@ exports.register = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
     const user = await User.create({ name, email, password });
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN || '7d' });
     res.status(201).json({ user, token });
   } catch (err) {
     next(err);
@@ -19,7 +19,7 @@ exports.login = async (req, res, next) => {
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN || '7d' });
     res.json({ user, token });
   } catch (err) {
     next(err);
