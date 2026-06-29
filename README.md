@@ -2,6 +2,9 @@
 
 A full-stack expense tracking application with income/expense categorization, monthly & yearly summaries, and interactive analytics charts.
 
+**🌐 Live Demo:** [expense-tracker-6q2ax5l1h-pateldaksh2206-2764s-projects.vercel.app](https://expense-tracker-6q2ax5l1h-pateldaksh2206-2764s-projects.vercel.app/)
+**🔗 API:** [expense-tracker-d06r.onrender.com](https://expense-tracker-d06r.onrender.com/)
+
 ## ✨ Features
 
 - **User Authentication** – Register/Login with JWT-based secure auth
