@@ -27,6 +27,20 @@ app.use('/api/transactions', transactionRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/analytics', analyticsRoutes);
 
+app.get('/', (req, res) => {
+  res.json({
+    name: 'Expense Tracker API',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      transactions: '/api/transactions',
+      categories: '/api/categories',
+      analytics: '/api/analytics',
+    },
+  });
+});
+
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 
 app.use(errorHandler);
